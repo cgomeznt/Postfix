@@ -24,7 +24,7 @@ Si el Sendmail esta instalado los removemos::
 	
 Instalar Postfix::
 
-	# yum install postfix
+	# yum install postfix mailx cyrus-sasl-plain
 
 Verificamos nuestro archivo hosts::
 

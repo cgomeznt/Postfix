@@ -1,4 +1,4 @@
-Alguanas formas de trabajar con Postfix mail queue
+Algunas formas de trabajar con Postfix mail queue
 =====================================================
 
 Cómo revisar el mensaje de correo electrónico que su servidor está intentando enviar.
