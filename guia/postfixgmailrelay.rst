@@ -34,7 +34,7 @@ Listo, recargamos el Postfix::
 	
 Pruebas del Relay::
 
-	ls -la / | mail -s"prueba de envio con Gmail como Relay"
+	ls -la / | mail -s"prueba de envio con Gmail como Relay" cgomeznt@gmail
 	
 Esto es lo que debemos ver en el log::
 
