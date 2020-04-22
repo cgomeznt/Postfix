@@ -1,2 +1,10 @@
-# Postfix
-Postfix es un servidor de correo de software libre / código abierto, un programa informático para el enrutamiento y envío de correo electrónico
+## DNS
+
+* [Instalar Postfix CentOS7](guia/installCentOS7.rst)
+
+
+
+
+
+
+
