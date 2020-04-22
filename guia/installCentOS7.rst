@@ -34,7 +34,7 @@ Verificamos nuestro archivo hosts::
 		190.36.229.66   mail1.cursoinfraestructura.com.ve cursoinfraestructura.com.ve
 		::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
 
-La IP 192.168.1.20  es la asignada a la unica interfaz del servidor y la IP WAN asociada al dominio cursoinfraestructura.com.ve, es decir, previo tienes configurado un DNS Publico.
+La IP 192.168.1.20  es la asignada a la unica interfaz del servidor y la IP 190.36.229.66 es la WAN asociada al dominio cursoinfraestructura.com.ve, es decir, previo tienes configurado un DNS Publico.
 
 
 Configurar Postfix, editamos el archivo /etc/postfix/main.cf::
@@ -85,9 +85,9 @@ Habilitamos el servicio del postfix y lo iniciamos::
 	# systemctl restart postfix
 	# systemctl status postfix 
 
-Para ver los LOGs:
+Para ver los LOGs::
 
-# tail -f /var/log/maillog
+	# tail -f /var/log/maillog
 
 Realizamo un test de envio local::
 
@@ -161,6 +161,6 @@ Ahora para ver los e-mail enviados nos vamos al homedirectory del usuario::
 
 	Buenas, esto es una prueba
 
+Para hacer las pruebas a los dominios externos, hacer lo mismo y colocar la rutas validas, ejemplo, cgomez@gmail, cgomez@yahoo.
 
-	
-
+No olvidemos que para que pueda ser aceptado por los dominios externos el envio de email, debemos cumplir con las convenciones de correo, como tener un DNS el A y su PTR, tener un SPF, no estar en listas negras, etc...etc.
