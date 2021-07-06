@@ -13,7 +13,7 @@ Para enviar correos electrónicos desde su servidor, el puerto 25 (saliente) deb
 
 Primero, necesitamos configurarlo para un dominio, luego configurarlo para múltiples dominios si así lo necesitamos.
 
-Paso 1: Establecer el nombre de host y el registro PTR
+Paso 1: Establecer el nombre de host y el registro PTR y SPF
 +++++++++++++++++++++++++++++
 
 De forma predeterminada, Postfix utiliza el nombre de host de su servidor para identificarse cuando se comunica con otros servidores SMTP. Algunos servidores SMTP rechazarán su correo electrónico si su nombre de host no es válido. Debe establecer un nombre de dominio completo (FQDN) como se muestra a continuación.::
@@ -33,6 +33,10 @@ Para ver si su registro PTR está configurado correctamente, ejecute el siguient
 	host 190.198.55.89
 
 	dig -x 190.198.55.89
+
+Este es un ejemplo del SPF que se debe publicar en los registros de DNS Publico::
+
+	  @            IN   TXT    "v=spf1 a:e-deus.cf ip4:190.36.229.66/23 -all"
 
 Paso 2: Instale Postfix en CentOS 7
 +++++++++++++++++++++
@@ -89,10 +93,65 @@ Puede cambiar su valor a e-deus.cf::
 
 	sudo postconf -e "myorigin = e-deus.cf"
 
+Consultamos si esta atendiendo por todas las interfaz::
+
+	postconf inet_interfaces
+
+Aseguramos que solo pueda atender por la inet lo::
+
+	postconf -e "inet_interfaces = loopback-only"
+
 **Reiniciar Postfix**
 Finalmente, necesitamos reiniciar Postfix para que los cambios surtan efecto.::
 
 	systemctl restart postfix
+
+Para ver los LOGs::
+
+	# tail -f /var/log/maillog 
+
+
+Ha instalado y configurado correctamente Postfix como un servidor MTA de solo envío. Para probar la entrega de correo electrónico, use el comando de correo como se muestra a continuación::
+
+	echo "Postfix Send-Only Server" | mail -s "Postfix Testing" cgomez@e-deus.cf
+
+
+También puede cargar datos existentes al correo::
+
+	mail -s "Mail Subject" cgomez@e-deus.cf < /home/jmutai/file.txt
+
+En el log deberá ver algo como esto::
+
+	Mar 31 19:03:39 debian postfix/pickup[28648]: 9B37C46CD6: uid=0 from=<root@debian.example.local>
+	Mar 31 19:03:39 debian postfix/cleanup[28700]: 9B37C46CD6: message-id=<20210331230339.9B37C46CD6@mail.e-deus.cf>
+	Mar 31 19:03:39 debian postfix/qmgr[28649]: 9B37C46CD6: from=<root@debian.example.local>, size=378, nrcpt=1 (queue active)
+	Mar 31 19:03:39 debian postfix/local[28721]: 9B37C46CD6: to=<cgomez@e-deus.cf>, relay=local, delay=0.13, delays=0.06/0.01/0/0.06, dsn=2.0.0, status=sent (delivered to maildir)
+	Mar 31 19:03:39 debian postfix/qmgr[28649]: 9B37C46CD6: removed
+
+Consultamos el Maildir del usuario::
+
+	ls -ltr /home/cgomez/Maildir/new/
+	total 16
+	-rw------- 1 cgomez cgomez  472 mar 31 19:03 1617231819.Vfe02I17612bfM673812.debian
+
+Leemos el correo::
+
+	cat  /home/cgomez/Maildir/new/1617231819.Vfe02I17612bfM673812.debian
+	Return-Path: <root@debian.example.local>
+	X-Original-To: cgomez@e-deus.cf
+	Delivered-To: cgomez@e-deus.cf
+	Received: by mail.e-deus.cf (Postfix, from userid 0)
+		id 9B37C46CD6; Wed, 31 Mar 2021 19:03:39 -0400 (-04)
+	Subject: This is the subject line
+	To: <cgomez@e-deus.cf>
+	X-Mailer: mail (GNU Mailutils 3.5)
+	Message-Id: <20210331230339.9B37C46CD6@mail.e-deus.cf>
+	Date: Wed, 31 Mar 2021 19:03:39 -0400 (-04)
+	From: root <root@debian.example.local>
+
+	This is the body of the email
+
+Esta configuración, la dirección en el campo **FROM** para los correos electrónicos será yourusername@mail.e-deus.cf, donde yourusername es su nombre de usuario de Linux y mail.e-deus.cf es el dominio configurado en el nombre de host de su servidor. Si cambia su nombre de usuario, la dirección **FROM** también cambiará.
 
 Este documento esta inconcluso aun falta..!!!
 

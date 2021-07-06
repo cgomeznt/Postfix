@@ -14,6 +14,8 @@ El trabajo principal del postfix (CentOS) es retransmitir correos localmente o a
 
 Antes de comenzar, también puede actualizar sus conceptos sobre cómo funciona el correo electrónico con Postfix como referencia. Esto te ayudaría a llegar más lejos con este contenido.
 
+Configuración de un `SplitDNS <https://github.com/cgomeznt/Zimbra/blob/main/guia/SplitDNS.rst>`_.(Opcional) 
+
 Verificar y remover el Sendmail (opcional)::
 
 	# rpm -qa | grep sendmail
@@ -24,7 +26,7 @@ Si el Sendmail esta instalado los removemos::
 	
 Instalar Postfix::
 
-	# yum install postfix mailx cyrus-sasl-plain
+	# yum install -y postfix mailx cyrus-sasl-plain
 
 Verificamos nuestro archivo hosts::
 
@@ -161,6 +163,8 @@ Ahora para ver los e-mail enviados nos vamos al homedirectory del usuario::
 
 	Buenas, esto es una prueba
 
+Nos conectamos a Gmail o Yahoo, para enviar correos de prueba a nuestro dominio. Hacemos el mismo troubleshooting anterior.
+
 Para hacer las pruebas a los dominios externos, hacer lo mismo y colocar la rutas validas, ejemplo, cgomez@gmail, cgomez@yahoo.
 
-No olvidemos que para que pueda ser aceptado por los dominios externos el envio de email, debemos cumplir con las convenciones de correo, como tener un DNS el A y su PTR, tener un SPF, no estar en listas negras, etc...etc.
+No olvidemos para que pueda ser aceptado por los dominios externos el envío de email, debemos cumplir con las convenciones de correo, como tener un DNS el registro MX y su tipo A, el PTR, tener un SPF, tener una IP estática, no estar en listas negras, etc...etc.
