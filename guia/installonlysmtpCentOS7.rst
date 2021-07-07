@@ -38,6 +38,8 @@ Este es un ejemplo del SPF que se debe publicar en los registros de DNS Publico:
 
 	  @            IN   TXT    "v=spf1 a:e-deus.cf ip4:190.36.229.66/23 -all"
 
+Configuración de un `SplitDNS <https://github.com/cgomeznt/Zimbra/blob/main/guia/SplitDNS.rst>`_.(Recomendado) 
+
 Paso 2: Instale Postfix en CentOS 7
 +++++++++++++++++++++
 
@@ -153,5 +155,6 @@ Leemos el correo::
 
 Esta configuración, la dirección en el campo **FROM** para los correos electrónicos será yourusername@mail.e-deus.cf, donde yourusername es su nombre de usuario de Linux y mail.e-deus.cf es el dominio configurado en el nombre de host de su servidor. Si cambia su nombre de usuario, la dirección **FROM** también cambiará.
 
-Este documento esta inconcluso aun falta..!!!
+Para hacer las pruebas a los dominios externos, hacer lo mismo y colocar la rutas validas, ejemplo, cgomez@gmail, cgomez@yahoo.
 
+No olvidemos para que pueda ser aceptado por los dominios externos el envío de email, debemos cumplir con las convenciones de correo, como tener un DNS el registro MX y su tipo A, el PTR, tener un SPF, tener una IP estática, no estar en listas negras, etc...etc.

@@ -14,7 +14,7 @@ El trabajo principal del postfix (CentOS) es retransmitir correos localmente o a
 
 Antes de comenzar, también puede actualizar sus conceptos sobre cómo funciona el correo electrónico con Postfix como referencia. Esto te ayudaría a llegar más lejos con este contenido.
 
-Configuración de un `SplitDNS <https://github.com/cgomeznt/Zimbra/blob/main/guia/SplitDNS.rst>`_.(Opcional) 
+Configuración de un `SplitDNS <https://github.com/cgomeznt/Zimbra/blob/main/guia/SplitDNS.rst>`_.(Recomendado) 
 
 Verificar y remover el Sendmail (opcional)::
 
