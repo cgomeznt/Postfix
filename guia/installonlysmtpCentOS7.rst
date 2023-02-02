@@ -16,6 +16,29 @@ Primero, necesitamos configurarlo para un dominio, luego configurarlo para múlt
 Paso 1: Establecer el nombre de host y el registro PTR y SPF
 +++++++++++++++++++++++++++++
 
+Adquirimos un dominio publico
+++++++++++++++++++++++++++++++
+
+En https://my.freenom.com adquirimos el Dominio y en realizamos las siguientes configuraciones, en este ejemplo el dominio se llama **e-deus.cf**:
+
++-----------------------------------------------------------------------------+
+|**Records**						      		      | 
++------------------+----+-------+---------------------------------------------+
+|Name	           |Type|TTL	|Target					      | 	
++------------------+----+-------+---------------------------------------------+
+|.		   |A	|300	|190.114.9.23	 	      	    	      |
++------------------+----+-------+---------------------------------------------+
+|MAIL		   |A	|3600	|190.114.9.23		  		      |
++------------------+----+-------+---------------------------------------------+
+|WWW		   |A	|300	|190.114.9.23		      		      |
++------------------+----+-------+---------------------------------------------+
+|.		   |MX	|3600	|mail.e-deus.cf	Priority:5	       	      |
++------------------+----+-------+---------------------------------------------+
+|.		   |TXT	|3600	|v=spf1 a:mail.e-deus.cf ip4:190.114.9.23 ~all|
++------------------+----+-------+---------------------------------------------+
+|_dmarc.e-deus.cf. |TXT	|3600	|v=DMARC1; p=none; rua=mailto:admin@e-deus.cf |
++------------------+----+-------+---------------------------------------------+
+
 De forma predeterminada, Postfix utiliza el nombre de host de su servidor para identificarse cuando se comunica con otros servidores SMTP. Algunos servidores SMTP rechazarán su correo electrónico si su nombre de host no es válido. Debe establecer un nombre de dominio completo (FQDN) como se muestra a continuación.::
 
 	hostnamectl set-hostname mail.e-deus.cf
