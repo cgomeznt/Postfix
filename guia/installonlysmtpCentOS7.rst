@@ -126,7 +126,7 @@ Aseguramos que solo pueda atender por la inet lo::
 
 	postconf -e "inet_interfaces = loopback-only"
 
-Si queremos agregar las IP que tiene que tener permisos en la variable $mynetworks
+Si queremos agregar las IP que tiene que tener permisos en la variable $mynetworks::
 
 	# postconf -e "mynetworks = 127.0.0.0/8, 190.203.180.247/32, 190.120.248.40/32, 190.114.9.23/32"
 
@@ -143,6 +143,60 @@ Para ver los LOGs::
 Ha instalado y configurado correctamente Postfix como un servidor MTA de solo envío. Para probar la entrega de correo electrónico, use el comando de correo como se muestra a continuación::
 
 	echo "Postfix Send-Only Server" | mail -s "Postfix Testing" cgomez@e-deus.cf
+	
+Esta prueba me gusta::
+
+	# echo "Postfix Send-Only Server" | mailx -v -s "Postfix Probando" -r "cgomeznt@e-deus.cf"  -S smtp="mail.e-deus.cf:25" carlos.gomez@credicard.com.ve
+	Resolving host mail.e-deus.cf . . . done.
+	Connecting to 190.114.9.23:25 . . . connected.
+	220 c946.gconex.com ESMTP Postfix
+	>>> HELO c946.gconex.com
+	250 c946.gconex.com
+	>>> MAIL FROM:<cgomeznt@e-deus.cf>
+	250 2.1.0 Ok
+	>>> RCPT TO:<carlos.gomez@credicard.com.ve>
+	250 2.1.5 Ok
+	>>> DATA
+	354 End data with <CR><LF>.<CR><LF>
+	>>> .
+	250 2.0.0 Ok: queued as 6F3C0140093
+	>>> QUIT
+	221 2.0.0 Bye
+
+Con telnet es bien::
+
+	➤ telnet e-deus.cf 25
+	Trying 190.114.9.23...
+	Connected to e-deus.cf.
+	Escape character is '^]'.
+	220 c946.gconex.com ESMTP Postfix
+	ehlos server
+	502 5.5.2 Error: command not recognized
+	ehlo server
+	250-c946.gconex.com
+	250-PIPELINING
+	250-SIZE 10240000
+	250-VRFY
+	250-ETRN
+	250-STARTTLS
+	250-ENHANCEDSTATUSCODES
+	250-8BITMIME
+	250-DSN
+	250 SMTPUTF8
+	mail from:cgomeznt@e-deus.cf
+	250 2.1.0 Ok
+	rcpt to:carlos.gomez@credicard.com.ve
+	250 2.1.5 Ok
+	data
+	354 End data with <CR><LF>.<CR><LF>
+	subject: Esto es una prueba de un Postfix
+
+	Buenas.
+
+	Por favor omitir este correo de prueba
+	.
+	250 2.0.0 Ok: queued as A4ABD140122
+	quit
 
 
 También puede cargar datos existentes al correo::
