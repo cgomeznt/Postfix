@@ -126,6 +126,10 @@ Aseguramos que solo pueda atender por la inet lo::
 
 	postconf -e "inet_interfaces = loopback-only"
 
+Si queremos agregar las IP que tiene que tener permisos en la variable $mynetworks
+
+	# postconf -e "mynetworks = 127.0.0.0/8, 190.203.180.247/32, 190.120.248.40/32, 190.114.9.23/32"
+
 **Reiniciar Postfix**
 Finalmente, necesitamos reiniciar Postfix para que los cambios surtan efecto.::
 
