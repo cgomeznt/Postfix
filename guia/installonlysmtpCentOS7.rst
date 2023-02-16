@@ -205,11 +205,14 @@ También puede cargar datos existentes al correo::
 
 En el log deberá ver algo como esto::
 
-	Mar 31 19:03:39 debian postfix/pickup[28648]: 9B37C46CD6: uid=0 from=<root@debian.example.local>
-	Mar 31 19:03:39 debian postfix/cleanup[28700]: 9B37C46CD6: message-id=<20210331230339.9B37C46CD6@mail.e-deus.cf>
-	Mar 31 19:03:39 debian postfix/qmgr[28649]: 9B37C46CD6: from=<root@debian.example.local>, size=378, nrcpt=1 (queue active)
-	Mar 31 19:03:39 debian postfix/local[28721]: 9B37C46CD6: to=<cgomez@e-deus.cf>, relay=local, delay=0.13, delays=0.06/0.01/0/0.06, dsn=2.0.0, status=sent (delivered to maildir)
-	Mar 31 19:03:39 debian postfix/qmgr[28649]: 9B37C46CD6: removed
+	Feb 16 00:56:11 c946 postfix/smtpd[20556]: connect from c946.gconex.com[190.114.9.23]
+	Feb 16 00:56:11 c946 postfix/smtpd[20556]: CF73714011A: client=c946.gconex.com[190.114.9.23]
+	Feb 16 00:56:11 c946 postfix/cleanup[20558]: CF73714011A: message-id=<63ed7f2b.RO9Q8zW10RWg75D5%cgomeznt@e-deus.cf>
+	Feb 16 00:56:11 c946 postfix/qmgr[20546]: CF73714011A: from=<cgomeznt@e-deus.cf>, size=559, nrcpt=1 (queue active)
+	Feb 16 00:56:11 c946 postfix/smtpd[20556]: disconnect from c946.gconex.com[190.114.9.23] helo=1 mail=1 rcpt=1 data=1 quit=1 commands=5
+	Feb 16 00:56:14 c946 postfix/smtp[20559]: CF73714011A: to=<cgomeznt@gmail.com>, relay=gmail-smtp-in.l.google.com[108.177.13.26]:25, delay=2.6, delays=0.02/0.03/2.3/0.23, dsn=2.0.0, status=sent (250 2.0.0 OK  1676508974 h15-20020ab0334f000000b006877f2807fbsi48590uap.94 - gsmtp)
+	Feb 16 00:56:14 c946 postfix/qmgr[20546]: CF73714011A: removed
+
 
 Consultamos el Maildir del usuario::
 
