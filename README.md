@@ -5,7 +5,9 @@
 * [Dockerizar Postfix CentOS7](guia/dockerizarCentOS7.rst)
 * [Postfix mail queue](guia/mailqueue.rst)
 * [Postfix utilizando Gmail como relay](guia/postfixgmailrelay.rst)
-
+* [Postfix LOG](guia/postfixgmailrelay.rst)
+* [Postfix relayhost](guia/postfixgmailrelay.rst)
+* [Postfix Aceptando relay](guia/postfixgmailrelay.rst)
 
 
 
