@@ -53,7 +53,7 @@ Este es un ejemplo de un Script
 ::
 
   FECHA=$(date +%d-%m-%Y_%H:%M)
-  EMAILS="soporte.aplicaciones@credicard.com.ve Monitoreo1@credicard.com.ve monitoreo@credicard.com.ve  Monitorcc@credicard.com.ve Andres.Pineda@credicard.com.ve Edgar.Duran@credicard.com.ve"
+  EMAILS="soporte.aplicaciones@e-deus.cf Monitoreo1@e-deus.cf monitoreo@e-deus.cf  Monitorcc@e-deus.cf Andres.Pineda@e-deus.cf Edgar.Duran@e-deus.cf"
   SUBJECT="Reporte Estatus plataforma Soporte Web $FECHA"
   BODY="/usr/local/bin/BODY_EMAIL.TXT"
   ATTACH="/usr/local/bin/Check-List_aplicaciones.xlsx"
@@ -61,7 +61,7 @@ Este es un ejemplo de un Script
 
   for email in $(echo $EMAILS)
   do
-    tr -cd "[:print:]\n" < $BODY |  mail -r soporte.aplicaciones@credicard.com.ve -a $ATTACH -v -s "$SUBJECT" $email
+    tr -cd "[:print:]\n" < $BODY |  mail -r soporte.aplicaciones@e-deus.cf -a $ATTACH -v -s "$SUBJECT" $email
   done
 
 
@@ -85,7 +85,7 @@ Y este es el archivo BODY_EMAIL.TXT
   Coordinacion Soporte Web.
   Especialista TI Soporte Web
   Telf.: 58 (0212)9554207
-  Soporte Aplicaciones <Soporte.Aplicaciones@credicard.com.ve>
+  Soporte Aplicaciones <Soporte.Aplicaciones@e-deus.cf>
 
 
 Este es otro ejemplo de script 
@@ -102,15 +102,15 @@ En este caso se requiere de un HEADER y de un FOODER para ir armando el BODY::
   function send_mail {
 
           FECHA=$(date +%d-%m-%Y_%H:%M)
-          EMAILS="soporte.aplicaciones@credicard.com.ve Monitoreo1@credicard.com.ve monitoreo@credicard.com.ve  Monitorcc@credicard.com.ve Andres.Pineda@credicard.com.ve Edgar.Duran@credicard.com.ve Servicios.Web@credicard.com.ve Jean.Bautista@credicard.com.ve Rafael.Barreta@credicard.com.ve Soporte.BD@credicard.com.ve Soporte.AS400@credicard.com.ve Avedis.Khajikian@credicard.com.ve"
+          EMAILS="soporte.aplicaciones@e-deus.cf Monitoreo1@e-deus.cf monitoreo@e-deus.cf  Monitorcc@e-deus.cf Andres.Pineda@e-deus.cf Edgar.Duran@e-deus.cf Servicios.Web@e-deus.cf Jean.Bautista@e-deus.cf Rafael.Barreta@e-deus.cf Soporte.BD@e-deus.cf Soporte.AS400@e-deus.cf Avedis.Khajikian@e-deus.cf"
           SUBJECT="Estado de Salud de la Replica IBM CDC para SMI $FECHA"
           #ATTACH="/usr/local/bin/Check-List_aplicaciones.xlsx"
 
 
           for email in $(echo $EMAILS)
           do
-                  #tr -cd "[:print:]\n" < $BODY |  mail -r soporte.aplicaciones@credicard.com.ve -a $ATTACH -v -s "$SUBJECT" $email
-                  tr -cd "[:print:]\n" < $BODY |  mail -r Replica.CDC.SMI@credicard.com.ve -v -s "$SUBJECT" $email
+                  #tr -cd "[:print:]\n" < $BODY |  mail -r soporte.aplicaciones@e-deus.cf -a $ATTACH -v -s "$SUBJECT" $email
+                  tr -cd "[:print:]\n" < $BODY |  mail -r Replica.CDC.SMI@e-deus.cf -v -s "$SUBJECT" $email
           done
   }
 
