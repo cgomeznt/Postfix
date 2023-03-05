@@ -43,8 +43,8 @@ Para omitir los \n o salto de lineas y evitar que mail envie el contenido en un 
 	
 Si solo queremos enviar correos interno solo debemos editar el archivo de configuración /etc/mail.rc y agregar::
 
-	set smtp=10.133.0.63
-	set from="Zabbix@credicard.com.ve"
+	set smtp=mail.e-deus.cf
+	set from="admin@e-deus.cf"
 	
 	
 	
