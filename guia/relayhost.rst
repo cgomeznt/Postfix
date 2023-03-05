@@ -25,7 +25,9 @@ Ejemplo; hay un servidor de SMTP de e-deus.cf y nuestros servidores lo van utili
 Reinicie el servicio postfix para que los cambios surtan efecto::
 
   # systemctl restart postfix
-  
+
+Instalar **mailx** https://github.com/cgomeznt/Postfix/blob/master/guia/mailx.rst
+
 Verifique la retransmisión de correo mediante los comandos telnet/mail(mailx)::
 
   # echo "Correo de ip from postfix" | mailx -v -s "Probando relay de postfix" -r "cgomeznt@e-deus.cf"  -S smtp="mail.e-deus.cf:25" cgomeznt@gmail.com
