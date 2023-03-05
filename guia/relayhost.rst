@@ -19,7 +19,7 @@ Edite /etc/postfix/main.cf y agregue/modifique el siguiente parámetro en la con
 
 Ejemplo; hay un servidor de SMTP de e-deus.cf y nuestros servidores lo van utilizar como relay::
 
-  myhostname = srv-jboss
+  myhostname = srv-api
   relayhost = mail.e-deus.cf
   
 Reinicie el servicio postfix para que los cambios surtan efecto::
