@@ -31,6 +31,7 @@ Creamos el archivo  **email.js**  y agregamos::
 
 Y luego solo ejecutamos::
 
+  export NODE_TLS_REJECT_UNAUTHORIZED='0'
   node email.js
 
 How to Send Emails with Node.js [3 Different Ways + Code Tutorials]
