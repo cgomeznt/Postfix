@@ -29,9 +29,12 @@ Creamos el archivo  **email.js**  y agregamos::
       }
       transporter.sendMail(message)
 
-Y luego solo ejecutamos::
+Deshabilitamos la verificación de TLS::
 
   export NODE_TLS_REJECT_UNAUTHORIZED='0'
+  
+Y luego solo ejecutamos::
+
   node email.js
 
 How to Send Emails with Node.js [3 Different Ways + Code Tutorials]
