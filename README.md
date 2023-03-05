@@ -6,7 +6,8 @@
 * [Postfix mail queue](guia/mailqueue.rst)
 * [Postfix utilizando Gmail como relay](guia/postfixgmailrelay.rst)
 * [Postfix LOG](guia/postfixgmailrelay.rst)
-* [Postfix relayhost](guia/postfixgmailrelay.rst)
+* [Postfix usando relayhost](guia/relayhost.rst)
+* [Postfix relayhost Gmail](guia/postfixgmailrelay.rst)
 * [Postfix Aceptando relay](guia/postfixgmailrelay.rst)
 
 
