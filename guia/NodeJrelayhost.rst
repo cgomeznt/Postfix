@@ -23,7 +23,7 @@ Creamos el archivo  **email.js**  y agregamos::
        })
   message = {
            from: "cgomez@e-deus.cf",
-           to: "cgomeznt@gmail.com",
+           to: "cgomeznt@calheta.com",
            subject: "1 Prueba desde Nodej",
            text: "Esto es un Hello SMTP Email, desde Nodej"
       }
