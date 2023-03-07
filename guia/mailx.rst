@@ -122,3 +122,59 @@ En este caso se requiere de un HEADER y de un FOODER para ir armando el BODY::
   echo > $BODY
 
   exit 0
+  
+  
+  
+  En Debian
+===========
+
+Instalamos ::
+
+	apt-get install mailutils bsd-mailx
+
+Configuramos el archivo mail.rc::
+
+	# cat /etc/mail.rc
+	set ask askcc append dot save crt
+	ignore Received Message-Id Resent-Message-Id Status Mail-From Return-Path Via Delivered-To
+	set hold
+	set append
+	set ask
+	set crt
+	set dot
+	set keep
+	set emptybox
+	set indentprefix="> "
+	set quote
+	set sendcharsets=iso-8859-1,utf-8
+	set showname
+	set showto
+	set newmail=nopoll
+	set autocollapse
+	set markanswered
+	ignore received in-reply-to message-id references
+	ignore mime-version content-transfer-encoding
+	fwdretain subject date from to
+
+
+	set smtp=e-deus.cf
+	set from="no-reply@e-deus.cf
+	
+Hacer una prueba::
+
+	mailx -r test@domain.com -s "SUBJECT" [EMAIL_ADDRESS]
+
+	# mailx -r admin@e-deus.cf -s "SUBJECT" cgomeznt@gmail.com
+	Unknown command: "fwdretain"
+	Saludos todo marcha muy bien
+	.
+	Cc:
+
+Ver log::
+
+	# tail -f /var/log/mail.log
+	Mar  7 11:19:22 SRVPROIMPRENTA postfix/pickup[3614]: 3C859802C8B: uid=0 from=<admin@e-deus.cf>
+	Mar  7 11:19:22 SRVPROIMPRENTA postfix/cleanup[5837]: 3C859802C8B: message-id=<20230307151922.3C859802C8B@SRVPROIMPRENTA.credicard.com.ve>
+	Mar  7 11:19:22 SRVPROIMPRENTA postfix/qmgr[3615]: 3C859802C8B: from=<admin@e-deus.cf>, size=438, nrcpt=1 (queue active)
+	Mar  7 11:19:23 SRVPROIMPRENTA postfix/smtp[5839]: 3C859802C8B: to=<cgomeznt@gmail.com>, relay=mail.e-deus.cf[190.114.9.23]:25, delay=1.3, delays=0.01/0.01/1.2/0.16, dsn=2.0.0, status=sent (250 2.0.0 Ok: queued as 787731400D0)
+	Mar  7 11:19:23 SRVPROIMPRENTA postfix/qmgr[3615]: 3C859802C8B: removed
