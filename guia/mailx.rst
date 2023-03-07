@@ -125,7 +125,7 @@ En este caso se requiere de un HEADER y de un FOODER para ir armando el BODY::
   
   
   
-  En Debian
+En Debian
 ===========
 
 Instalamos ::
