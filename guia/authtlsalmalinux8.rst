@@ -108,7 +108,6 @@ Vemos el LOG errors/failures::
 
 
 Realizamos el Test con postfix iniciado, para validar que este trabajando las peticiones SMTP-AUTH/TLS::
-telnet localhost 25
 
   # telnet e-deus.cf 25
   Trying 190.114.9.23...
@@ -136,6 +135,7 @@ telnet localhost 25
 
 
   Si muestra los siguiente quiere decir que el TLS y el PLAIN/LOGIN logins estan configurados::
+  
     250-STARTTLS
     250-AUTH PLAIN LOGIN
     
