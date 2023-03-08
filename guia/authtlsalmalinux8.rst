@@ -148,8 +148,8 @@ Verificando la Autenticación
 
 Creamos una cuenta::
 
-useradd cgomeznt
-echo Betania | passwd --stdin cgomeznt 
+  useradd cgomeznt
+  echo Betania | passwd --stdin cgomeznt 
 
 
 Encode Plain Text to Base64::
@@ -198,3 +198,10 @@ Verificamos que este trabajando la autenticación::
   .
   250 2.0.0 Ok: queued as 1EA311400CA
 
+
+
+
+https://www.vmadmin.co.uk/linux/44-redhat/146-linuxpostfix
+
+
+https://sysadmins.co.za/setup-smtp-authentication-with-tls-ssl-on-postfix/
