@@ -96,3 +96,51 @@ systemctl stop sendmail
 systemctl start postfix
 systemctl start saslauthd
 
+Vemos el LOG errors/failures::
+
+  tail /var/log/maillog
+  ....
+  Mar 10 04:21:55 vsv01 sendmail[6074]: alias database /etc/aliases rebuilt by andy
+  Mar 10 04:21:55 vsv01 sendmail[6074]: /etc/aliases: 76 aliases, longest 10 bytes, 765 bytes total
+  Mar 10 04:21:55 vsv01 postfix/postfix-script: starting the Postfix mail system
+  Mar 10 04:21:55 vsv01 postfix/master[6120]: daemon started -- version 2.3.3, configuration /etc/postfix
+  ....
+
+
+Realizamos el Test con postfix iniciado, para validar que este trabajando las peticiones SMTP-AUTH/TLS::
+telnet localhost 25
+
+  # telnet e-deus.cf 25
+  Trying 190.114.9.23...
+  Connected to e-deus.cf.
+  Escape character is '^]'.
+  ehlo 220 mail.e-deus.cf ESMTP No me jodas
+  server
+  250-mail.e-deus.cf
+  250-PIPELINING
+  250-SIZE 10485760
+  250-ETRN
+  250-STARTTLS
+  250-AUTH PLAIN LOGIN
+  250-AUTH=PLAIN LOGIN
+  250-ENHANCEDSTATUSCODES
+  250-8BITMIME
+  250-DSN
+  250 SMTPUTF8
+  mail from:<cgomeznt@e-deus.cf>
+  250 2.1.0 Ok
+  rcpt to:<cgomeznt@gmail.com>
+  504 5.5.2 <server>: Helo command rejected: need fully-qualified hostname
+  quit
+  221 2.0.0 Bye
+
+
+  Si muestra los siguiente quiere decir que el TLS y el PLAIN/LOGIN logins estan configurados::
+    250-STARTTLS
+    250-AUTH PLAIN LOGIN
+    
+  Si nos muestra el 504 5.5.2 es evidencia que no permite conexión porque no se esta autenticando o porque no esta en la red de mynetworks
+
+
+
+ 
