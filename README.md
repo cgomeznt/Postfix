@@ -9,6 +9,7 @@
 * [Cómo cambiar el encabezado De para los mensajes enviados por Postfix](guia/Header.rst)
 * [Instalar Mailx para hacer pruebas con Postfix](guia/mailx.rst)
 * [Postfix usando relayhost](guia/relayhost.rst)
+* [Postfix usando relayhost AUTH SASL TLS Almalinux 8](guia/relayhostauthtlsalmalinux8.rst)
 * [Probar el relay con Nodej](guia/NodeJrelayhost.rst)
 * [Postfix utilizando Gmail como relay](guia/postfixgmailrelay.rst)
 * [Postfix relayhost Gmail](guia/postfixgmailrelay.rst)
