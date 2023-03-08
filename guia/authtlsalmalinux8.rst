@@ -143,4 +143,58 @@ Realizamos el Test con postfix iniciado, para validar que este trabajando las pe
 
 
 
- 
+Verificando la Autenticación
++++++++++++++++++++++++++++++++++
+
+Creamos una cuenta::
+
+useradd cgomeznt
+echo Betania | passwd --stdin cgomeznt 
+
+
+Encode Plain Text to Base64::
+
+  $ perl -MMIME::Base64 -e 'print encode_base64("cgomeznt");'
+  dnNhbmNoZXo=
+  $ perl -MMIME::Base64 -e 'print encode_base64("Betania");'
+  QmV0YW5pYTIx
+
+
+Verificamos que este trabajando la autenticación::
+
+  # telnet e-deus.cf 25
+  Trying 190.114.9.23...
+  Connected to e-deus.cf.
+  Escape character is '^]'.
+  220 mail.e-deus.cf ESMTP No me jodas
+  ehlo server
+  250-mail.e-deus.cf
+  250-PIPELINING
+  250-SIZE 10485760
+  250-ETRN
+  250-STARTTLS
+  250-AUTH PLAIN LOGIN
+  250-AUTH=PLAIN LOGIN
+  250-ENHANCEDSTATUSCODES
+  250-8BITMIME
+  250-DSN
+  250 SMTPUTF8
+  AUTH LOGIN
+  334 VXNlcm5hbWU6
+  dnNhbmNoZXo=
+  334 UGFzc3dvcmQ6
+  QmV0YW5pYTIx
+  235 2.7.0 Authentication successful
+  mail from:<cgomeznt@e-deus.cf>
+  250 2.1.0 Ok
+  rcpt to:<cgomeznt@gmail.com>
+  250 2.1.0 Ok
+  data
+  subject:Postfix con AUTH y TLS
+  250 2.1.5 Ok
+  354 End data with <CR><LF>.<CR><LF>
+
+  Buenas. Cuerpo del correo
+  .
+  250 2.0.0 Ok: queued as 1EA311400CA
+
