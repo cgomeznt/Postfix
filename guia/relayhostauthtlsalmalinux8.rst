@@ -39,14 +39,18 @@ Hacemos una prueba::
   
 En el LOG del servidor de Relay debemos ver algo como esto::
 
-  Mar  9 00:14:37 c946 postfix/smtpd[58426]: warning: hostname 186-185-3-41.genericrev.telcel.net.ve does not resolve to address 186.185.3.41
-  Mar  9 00:14:37 c946 postfix/smtpd[58426]: connect from unknown[186.185.3.41]
-  Mar  9 00:14:37 c946 postfix/smtpd[58426]: discarding EHLO keywords: CHUNKING
-  Mar  9 00:14:38 c946 postfix/smtpd[58426]: 008F1140088: client=unknown[186.185.3.41], sasl_method=LOGIN, sasl_username=cgomeznt
-  Mar  9 00:14:38 c946 postfix/cleanup[58431]: 008F1140088: message-id=<20230309001432.5B09E802C8B@SRVPROIMPRENTA>
-  Mar  9 00:14:38 c946 postfix/qmgr[57111]: 008F1140088: from=<cgome1@e-deus.cf>, size=600, nrcpt=1 (queue active)
-  Mar  9 00:14:38 c946 postfix/smtpd[58426]: disconnect from unknown[186.185.3.41] ehlo=1 auth=1 mail=1 rcpt=1 data=1 quit=1 commands=6
-  Mar  9 00:14:38 c946 postfix/smtp[58432]: connect to gmail-smtp-in.l.google.com[2607:f8b0:400c:c0f::1a]:25: Network is unreachable
-  Mar  9 00:14:39 c946 postfix/smtp[58432]: 008F1140088: to=<cgomeznt@gmail.com>, relay=gmail-smtp-in.l.google.com[173.194.210.26]:25, delay=1.3, delays=0.09/0.03/0.26/0.89, dsn=2.0.0, status=sent (250 2.0.0 OK  1678320879 v14-20020ab0658e000000b00418b0d5245fsi5337591uam.55 - gsmtp)
-  Mar  9 00:14:39 c946 postfix/qmgr[57111]: 008F1140088: removed
+  Mar  9 00:22:39 c946 postfix/smtpd[58436]: connect from unknown[193.42.33.16]
+  Mar  9 00:22:39 c946 postfix/smtpd[58436]: discarding EHLO keywords: CHUNKING
+  Mar  9 00:22:39 c946 postfix/smtpd[58436]: warning: unknown[193.42.33.16]: SASL LOGIN authentication failed: authentication failure
+  Mar  9 00:22:40 c946 postfix/smtpd[58436]: disconnect from unknown[193.42.33.16] ehlo=1 auth=0/1 rset=1 quit=1 commands=3/4
+  Mar  9 00:23:02 c946 postfix/smtpd[58436]: warning: hostname 186-185-3-41.genericrev.telcel.net.ve does not resolve to address 186.185.3.41
+  Mar  9 00:23:02 c946 postfix/smtpd[58436]: connect from unknown[186.185.3.41]
+  Mar  9 00:23:02 c946 postfix/smtpd[58436]: discarding EHLO keywords: CHUNKING
+  Mar  9 00:23:03 c946 postfix/smtpd[58436]: 15F1A140088: client=unknown[186.185.3.41], sasl_method=LOGIN, sasl_username=cgomeznt
+  Mar  9 00:23:03 c946 postfix/cleanup[58441]: 15F1A140088: message-id=<20230309002258.04FD2802C8B@SRVPROIMPRENTA>
+  Mar  9 00:23:03 c946 postfix/qmgr[57111]: 15F1A140088: from=<cgome1@e-deus.cf>, size=584, nrcpt=1 (queue active)
+  Mar  9 00:23:03 c946 postfix/smtpd[58436]: disconnect from unknown[186.185.3.41] ehlo=1 auth=1 mail=1 rcpt=1 data=1 quit=1 commands=6
+  Mar  9 00:23:03 c946 postfix/smtp[58442]: 15F1A140088: to=<cgomeznt@gmail.com>, relay=gmail-smtp-in.l.google.com[173.194.210.27]:25, delay=0.73, delays=0.12/0.03/0.28/0.3, dsn=2.0.0, status=sent (250 2.0.0 OK  1678321383 z12-20020a67f54c000000b004120559131csi5015066vsn.559 - gsmtp)
+  Mar  9 00:23:03 c946 postfix/qmgr[57111]: 15F1A140088: removed
+
 
