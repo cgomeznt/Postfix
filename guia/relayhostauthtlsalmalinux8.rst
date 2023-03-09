@@ -24,7 +24,7 @@ Podemos verificar, debe retornar el nombre del realay, el usaurio:clave ::
 
   postmap -q smtp.to.relay.com /etc/postfix/sasl_passwd
 
-Reiniciamos el servicio
+Reiniciamos el servicio::
 
   systemctl restart postfix
 
