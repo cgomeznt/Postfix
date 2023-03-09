@@ -15,6 +15,7 @@ Instalamos el nodemailer, con npm ::
   
 Creamos el archivo  **email.js**  y agregamos::
 
+  process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
   const nodemailer = require('nodemailer');
         let transporter = nodemailer.createTransport({
                host: 'mail.e-deus.cf',
