@@ -15,6 +15,8 @@
 * [Postfix relayhost Gmail](guia/postfixgmailrelay.rst)
 * [Postfix Aceptando relay](guia/postfixgmailrelay.rst)
 
+* [Script para chequear las Listas Negras](guia/check_black_list.rst)
+
 
 
 
