@@ -39,6 +39,10 @@ En https://my.freenom.com adquirimos el Dominio y en realizamos las siguientes c
 |_dmarc.e-deus.cf. |TXT	|3600	|v=DMARC1; p=none; rua=mailto:admin@e-deus.cf |
 +------------------+----+-------+---------------------------------------------+
 
+Este es un ejemplo opcional de un SPF, con varios registros::
+
+	v=spf1 ip4:190.94.198.220 ip4:200.74.232.94 ip4:190.153.103.9 a:mail.e-deus.cf a:mail1.e-deus.cf a:mail2.e-deus.cf +all
+	
 De forma predeterminada, Postfix utiliza el nombre de host de su servidor para identificarse cuando se comunica con otros servidores SMTP. Algunos servidores SMTP rechazarán su correo electrónico si su nombre de host no es válido. Debe establecer un nombre de dominio completo (FQDN) como se muestra a continuación.::
 
 	hostnamectl set-hostname mail.e-deus.cf
