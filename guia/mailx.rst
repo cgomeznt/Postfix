@@ -178,7 +178,7 @@ Ver log::
 
 
 Probar el envio de correo y certificarlo con Gmail
-----------------------------------------------------
+--------------------------------------------------
 
 Nos ayudamos con mailx::
 	
