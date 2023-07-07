@@ -176,23 +176,3 @@ Ver log::
 	Mar  7 11:19:22 SRVPROIMPRENTA postfix/pickup[3614]: 3C859802C8B: uid=0 from=<admin@e-deus.cf>
 	Mar  7 11:19:22 SRVPROIMPRENTA postfix/cleanup[5837]: 3C859802C8B: message-id=<20230307151922.3C859802C8B@SRVPROIMPRENTA.credicard.com.ve>
 
-Probar el envio de correo y certificarlo con Gmail
-----------------------------------------------------
-
-Nos ayudamos con mailx::
-
-	$ echo "Buenas. de esta forma es que usted puede enviar correos con Postfix" | mailx -v -s "Guia de envio de correo por Postfix" -r "cgomeznt@e-deus.online"  -S smtp="mail.e-deus.online:25" soporte.aplicaciones@credicard.com.ve cgomez@gmail.com
-
-
-
-Esto es lo que debemos ver en el log::
-
-	Jul  7 20:46:01 c946 postfix/smtpd[1045701]: connect from c946.gconex.com[190.114.9.23]
-	Jul  7 20:46:01 c946 postfix/smtpd[1045701]: F35F91400C5: client=c946.gconex.com[190.114.9.23]
-	Jul  7 20:46:01 c946 postfix/cleanup[1045705]: F35F91400C5: message-id=<64a87989.TDLKuidz/b1bgl5T%cgomeznt@e-deus.online>
-	Jul  7 20:46:02 c946 postfix/smtpd[1045701]: disconnect from c946.gconex.com[190.114.9.23] helo=1 mail=1 rcpt=2 data=1 quit=1 commands=6
-	Jul  7 20:46:02 c946 postfix/qmgr[895556]: F35F91400C5: from=<cgome1@e-deus.online>, size=612, nrcpt=2 (queue active)
-	Jul  7 20:46:02 c946 postfix/smtp[1045706]: F35F91400C5: enabling PIX workarounds: disable_esmtp for credicorreo2.credicard.com.ve[200.109.231.217]:25
-	Jul  7 20:46:03 c946 postfix/smtp[1045706]: F35F91400C5: to=<soporte.aplicaciones@credicard.com.ve>, relay=credicorreo2.credicard.com.ve[200.109.231.217]:25, delay=1, delays=0.02/0.03/0.32/0.67, dsn=2.0.0, status=sent (250 2.0.0 367Kk2fP017589-367Kk2fQ017589 Message accepted for delivery)
-	Jul  7 20:46:03 c946 postfix/smtp[1045707]: F35F91400C5: to=<cgomeznt@gmail.com>, relay=gmail-smtp-in.l.google.com[172.217.203.27]:25, delay=1.1, delays=0.02/0.06/0.37/0.66, dsn=2.0.0, status=sent (250 2.0.0 OK  1688762763 b9-20020a0561020b0900b004435af1fc44si378866vst.550 - gsmtp)
-	Jul  7 20:46:03 c946 postfix/qmgr[895556]: F35F91400C5: removed
