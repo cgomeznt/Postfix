@@ -14,6 +14,7 @@
 * [Postfix utilizando Gmail como relay](guia/postfixgmailrelay.rst)
 * [Postfix relayhost Gmail](guia/postfixgmailrelay.rst)
 * [Postfix Aceptando relay](guia/postfixgmailrelay.rst)
+* [Habilitar el lOG para ver los Asuntos](guia/Enable_Logging_Header.rst)
 *
 * [Script para chequear las Listas Negras](guia/check_black_list.rst)
 
